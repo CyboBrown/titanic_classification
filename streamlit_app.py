@@ -53,9 +53,10 @@ if st.button('Predict'):
          input_is_mr, input_age_group, input_is_elderly, input_family_size, input_is_alone, input_fare_group]
     ]
     st.header(vector_input)
-    prediction = model.predict(vector_input)[0][0]
+    prediction = model.predict(vector_input)[0]
+    st.header(prediction)
 
-    if prediction >= 0.5:
+    if prediction[0] >= 50:
         st.header("Survive")
     else:
         st.header("Die")
