@@ -22,8 +22,21 @@ model = pickle.load(open('titanic_classification.pkl', 'rb'))
 st.title("Titanic Survival Classification")
 
 # text input where user will enter the parameters
-input_p_class = st.text_area("Enter passenger class: ")
-st.select_slider("Gender", ["Male", "Female"])
+input_p_id = float(st.text_area("Passenger ID: ", ))
+input_p_class = st.selectbox("Passenger Class: ", ["1st", "2nd", "3rd"])
+input_sex = st.selectbox("Gender: ", ["Male", "Female"])
+input_age = float(st.text_area("Age: "))
+input_sib_sp = float(st.text_area("No. of Siblings/Spouse: "))
+input_par_ch = float(st.text_area("No. of Parents/Children: "))
+input_fare = float(st.text_area("Fare: "))
+input_embarked = st.selectbox("Port of Embarkation: ", ["Cherbourg", "Queenstown", "Southampton"])
+input_title = st.selectbox("Title: ", ['Mr', 'Miss', 'Mrs', 'Master', 'Others'])
+# input_is_mr
+# input_age_group
+# input_is_elderly
+# input_family_size
+# input_is_alone
+# input_fare_group
 
 # predict button, when clicked will execute the process
 if st.button('Predict'):
