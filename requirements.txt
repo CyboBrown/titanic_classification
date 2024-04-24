@@ -1,4 +1,4 @@
 tensorflow
 seaborn
 matplotlib
-sklearn
+scikit-learn
