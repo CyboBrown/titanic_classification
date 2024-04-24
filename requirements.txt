@@ -2,4 +2,3 @@ tensorflow
 seaborn
 matplotlib
 scikit-learn
-pickle5
