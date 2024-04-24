@@ -37,7 +37,7 @@ input_title = st.selectbox("Title: ", ['Mr', 'Miss', 'Mrs', 'Master', 'Others'])
 if st.button('Predict'):
     # st.header([input_p_id, input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title])
     input_p_class = 1 if (input_p_class == '1st') else 2 if (input_p_class == '2nd') else 3 if (input_p_class == '3rd') else 0
-    input_sex = 0 if (input_sex == 'Male') else 1
+    input_sex = 1 if (input_sex == 'Male') else 0
     input_embarked = 0 if (input_embarked == 'Southampton') else 1 if (input_embarked == 'Cherbourg') else 2 if (input_embarked == 'Queenstown') else -1
     titles = ['Mr', 'Miss', 'Mrs', 'Master', 'Others']
     input_is_mr = 1 if (input_title == 'Mr') else 0
@@ -56,7 +56,7 @@ if st.button('Predict'):
     prediction = model.predict(vector_input)[0]
     st.header(prediction)
 
-    if prediction[0] >= 50:
+    if prediction[0] >= 0.5:
         st.header("Survive")
     else:
         st.header("Die")
