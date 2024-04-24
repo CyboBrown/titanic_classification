@@ -35,26 +35,27 @@ input_title = st.selectbox("Title: ", ['Mr', 'Miss', 'Mrs', 'Master', 'Others'])
 
 # predict button, when clicked will execute the process
 if st.button('Predict'):
-    st.header([input_p_id, input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title])
+    # st.header([input_p_id, input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title])
     input_p_class = 1 if (input_p_class == '1st') else 2 if (input_p_class == '2nd') else 3 if (input_p_class == '3rd') else 0
     input_sex = 0 if (input_sex == 'Male') else 1
-    input_embarked = 0 if (input_p_class == 'Southampton') else 1 if (input_p_class == 'Cherbourg') else 2 if (input_p_class == 'Queenstown') else -1
+    input_embarked = 0 if (input_embarked == 'Southampton') else 1 if (input_embarked == 'Cherbourg') else 2 if (input_embarked == 'Queenstown') else -1
     titles = ['Mr', 'Miss', 'Mrs', 'Master', 'Others']
+    input_is_mr = 1 if (input_title == 'Mr') else 0
     input_title = titles.index(input_title)
-    # input_is_mr
-    # input_age_group
-    # input_is_elderly
-    # input_family_size
-    # input_is_alone
-    # input_fare_group
+    input_age_group = 0 if (input_age <= 16) else 1 if (16 < input_age <= 32) else 2 if (32 < input_age <= 48) else 3 if (48 < input_age <= 64) else 4 if (input_age > 64) else -1
+    input_is_elderly = 1 if (input_age >= 65) else 0
+    input_family_size = input_sib_sp + input_par_ch + 1
+    input_is_alone = 1 if (input_family_size == 1) else 0
+    input_fare_group = 0 if (input_fare <= 7.91) else 1 if (7.91 < input_fare <= 14.454) else 2 if (14.454 < input_fare <= 31.0) else 3 if (input_fare > 31.0) else -1
 
-    # vector_input = [
-    #     [input_p_id, input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title,
-    #      input_is_mr, input_age_group, input_is_elderly, input_family_size, input_is_alone, input_fare_group]
-    # ]
-    # prediction = model.predict(vector_input)[0][0]
-    #
-    # if prediction >= 0.5:
-    #     st.header("Survive")
-    # else:
-    #     st.header("Die")
+    vector_input = [
+        [input_p_id, input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title,
+         input_is_mr, input_age_group, input_is_elderly, input_family_size, input_is_alone, input_fare_group]
+    ]
+    st.header(vector_input)
+    prediction = model.predict(vector_input)[0][0]
+
+    if prediction >= 0.5:
+        st.header("Survive")
+    else:
+        st.header("Die")
