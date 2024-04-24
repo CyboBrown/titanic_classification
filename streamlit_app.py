@@ -22,7 +22,7 @@ model = pickle.load(open('titanic_classification.pkl', 'rb'))
 st.title("Titanic Survival Classification")
 
 # text input where user will enter the parameters
-input_p_id = float(st.text_area("Passenger ID: ", ))
+input_p_id = float(st.text_area("Passenger ID: "))
 input_p_class = st.selectbox("Passenger Class: ", ["1st", "2nd", "3rd"])
 input_sex = st.selectbox("Gender: ", ["Male", "Female"])
 input_age = float(st.text_area("Age: "))
