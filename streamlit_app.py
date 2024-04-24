@@ -22,7 +22,7 @@ model = pickle.load(open('titanic_classification.pkl', 'rb'))
 st.title("Titanic Survival Classification")
 
 # text input where user will enter the parameters
-input_p_id = float(st.number_input("Passenger ID: ", 0, 10000, step=1))
+# input_p_id = float(st.number_input("Passenger ID: ", 0, 10000, step=1))
 input_p_class = st.selectbox("Passenger Class: ", ["1st", "2nd", "3rd"])
 input_sex = st.selectbox("Sex: ", ["Male", "Female"])
 input_age = float(st.number_input("Age: ", 0, 200, step=1))
@@ -49,7 +49,7 @@ if st.button('Predict'):
     input_fare_group = 0 if (input_fare <= 7.91) else 1 if (7.91 < input_fare <= 14.454) else 2 if (14.454 < input_fare <= 31.0) else 3 if (input_fare > 31.0) else -1
 
     vector_input = [
-        [input_p_id, input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title,
+        [0, input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title,
          input_is_mr, input_age_group, input_is_elderly, input_family_size, input_is_alone, input_fare_group]
     ]
     st.header(vector_input)
