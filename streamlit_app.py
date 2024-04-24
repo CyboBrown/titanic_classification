@@ -53,7 +53,9 @@ if st.button('Predict'):
     # vector_input = pd.DataFrame(vector_input, columns=tfidf.get_feature_names_out())
 
     # 3. predict - passing the converted text to model to predict if it is spam or ham
-    # prediction = model.predict(vector_input)[0]
+    vector_input = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    prediction = model.predict(vector_input)[0]
+    st.header(prediction)
 
     # 4. display - the result on app itself , if prediction result is 1 then ui(button) will display  Spam else Not Spam
     # if prediction == 1:
