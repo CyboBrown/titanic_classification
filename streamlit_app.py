@@ -22,13 +22,13 @@ model = pickle.load(open('titanic_classification.pkl', 'rb'))
 st.title("Titanic Survival Classification")
 
 # text input where user will enter the parameters
-input_p_id = float(st.text_area("Passenger ID: "))
+input_p_id = float(st.number_input("Passenger ID: "))
 input_p_class = st.selectbox("Passenger Class: ", ["1st", "2nd", "3rd"])
 input_sex = st.selectbox("Gender: ", ["Male", "Female"])
-input_age = float(st.text_area("Age: "))
-input_sib_sp = float(st.text_area("No. of Siblings/Spouse: "))
-input_par_ch = float(st.text_area("No. of Parents/Children: "))
-input_fare = float(st.text_area("Fare: "))
+input_age = float(st.number_input("Age: "))
+input_sib_sp = float(st.number_input("No. of Siblings/Spouse: "))
+input_par_ch = float(st.number_input("No. of Parents/Children: "))
+input_fare = float(st.number_input("Fare: "))
 input_embarked = st.selectbox("Port of Embarkation: ", ["Cherbourg", "Queenstown", "Southampton"])
 input_title = st.selectbox("Title: ", ['Mr', 'Miss', 'Mrs', 'Master', 'Others'])
 # input_is_mr
