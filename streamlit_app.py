@@ -49,7 +49,7 @@ if st.button('Predict'):
     input_fare_group = 0 if (input_fare <= 7.91) else 1 if (7.91 < input_fare <= 14.454) else 2 if (14.454 < input_fare <= 31.0) else 3 if (input_fare > 31.0) else -1
 
     vector_input = [
-        [0, input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title,
+        [input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title,
          input_is_mr, input_age_group, input_is_elderly, input_family_size, input_is_alone, input_fare_group]
     ]
     st.header(vector_input)
