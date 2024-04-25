@@ -52,11 +52,12 @@ if st.button('Predict'):
         [input_p_class, input_sex, input_age, input_sib_sp, input_par_ch, input_fare, input_embarked, input_title,
          input_is_mr, input_age_group, input_is_elderly, input_family_size, input_is_alone, input_fare_group]
     ]
-    st.header(vector_input)
+    # st.header(vector_input)
     prediction = model.predict(vector_input)[0]
     st.header(prediction)
 
     if prediction[0] <= 0.5:
-        st.header("Survive")
+        st.header("You would have most likely survive in Titanic.")
     else:
-        st.header("Die")
+        st.header("You would have most likely die in Titanic.")
+    st.text("The probability of you dying is about " + prediction[0] + "%")
