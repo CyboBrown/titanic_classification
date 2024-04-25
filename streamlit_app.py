@@ -30,7 +30,7 @@ input_sib_sp = float(st.number_input("No. of Siblings/Spouse: ", 0, 100, step=1)
 input_par_ch = float(st.number_input("No. of Parents/Children: ", 0, 100, step=1))
 input_fare = float(st.number_input("Fare: "))
 input_embarked = st.selectbox("Port of Embarkation: ", ["Cherbourg", "Queenstown", "Southampton"])
-input_title = st.selectbox("Title: ", ['Mr', 'Miss', 'Mrs', 'Master', 'Others'])
+input_title = st.selectbox("Title: ", ['Mrs', 'Miss', 'Master', 'Other', 'Mr'])
 
 
 # predict button, when clicked will execute the process
@@ -39,7 +39,7 @@ if st.button('Predict'):
     input_p_class = 1 if (input_p_class == '1st') else 2 if (input_p_class == '2nd') else 3 if (input_p_class == '3rd') else 0
     input_sex = 0 if (input_sex == 'Male') else 1
     input_embarked = 0 if (input_embarked == 'Southampton') else 1 if (input_embarked == 'Cherbourg') else 2 if (input_embarked == 'Queenstown') else -1
-    titles = ['Mr', 'Miss', 'Mrs', 'Master', 'Others']
+    titles = ['Mrs', 'Miss', 'Master', 'Other', 'Mr']
     input_is_mr = 1 if (input_title == 'Mr') else 0
     input_title = titles.index(input_title)
     input_age_group = 0 if (input_age <= 16) else 1 if (16 < input_age <= 32) else 2 if (32 < input_age <= 48) else 3 if (48 < input_age <= 64) else 4 if (input_age > 64) else -1
