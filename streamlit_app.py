@@ -60,4 +60,4 @@ if st.button('Predict'):
         st.header("You would have most likely SURVIVED in the Titanic.")
     else:
         st.header("You would have most likely DIED in the Titanic.")
-    st.text("The probability of you dying is about " + str(prediction[1] * 100) + "%")
+    st.text("Your probability of surviving is about " + str(prediction[1] * 100) + "%")
