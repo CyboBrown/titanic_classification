@@ -57,7 +57,7 @@ if st.button('Predict'):
     st.header(prediction)
 
     if prediction[0] <= 0.5:
-        st.header("You would have most likely survive in Titanic.")
+        st.header("You would have most likely SURVIVED in Titanic.")
     else:
-        st.header("You would have most likely die in Titanic.")
-    st.text("The probability of you dying is about " + str(prediction[0]) + "%")
+        st.header("You would have most likely DIED in Titanic.")
+    st.text("The probability of you dying is about " + str(prediction[0] * 10) + "%")
