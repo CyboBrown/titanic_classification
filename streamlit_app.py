@@ -56,8 +56,12 @@ if st.button('Predict'):
     prediction = model.predict(vector_input)[0]
     # st.header(prediction)
 
-    if prediction[0] <= 0.5:
-        st.header("You would have most likely SURVIVED in the Titanic.")
+    if prediction[1] > 0.75:
+        st.header("You would have likely SURVIVED in the Titanic.")
+    elif prediction[1] > 0.5:
+        st.header("You would have been moderately likely to SURVIVE in the Titanic.")
+    elif prediction[1] > 0.25:
+        st.header("You would have been moderately likely to DIE in the Titanic.")
     else:
         st.header("You would have most likely DIED in the Titanic.")
     st.text("Your probability of surviving is about " + str(prediction[1] * 100) + "%")
