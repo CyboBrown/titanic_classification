@@ -56,7 +56,7 @@ if st.button('Predict'):
     prediction = model.predict(vector_input)[0]
     st.header(prediction)
 
-    if prediction[0] <= 0.5:
+    if prediction[0] >= 0.5:
         st.header("Survive")
     else:
         st.header("Die")
